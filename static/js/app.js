@@ -1,5 +1,5 @@
 // d3.json("../../samples.json").then(function (data) {
-url = "https://github.com/MohanPanga/PlotlyDataVisualization/samples.json"
+url = "samples.json"
 
 d3.json(url).then(function (data) {
     console.log(data)
