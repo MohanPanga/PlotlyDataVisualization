@@ -29,7 +29,7 @@ d3.json("../../samples.json").then(function (data) {
         plotdata = [trace]
 
         var layout = {
-            title:`OTU for Subject ID: ${id}`
+            title: `OTU for Subject ID: ${id}`
         }
 
         Plotly.newPlot("bar", plotdata, layout)
@@ -62,6 +62,10 @@ d3.json("../../samples.json").then(function (data) {
         plotdata = [trace_bubble]
         Plotly.newPlot("bubble", plotdata, layout)
 
+        metadata = data.metadata.filter(item => item.id == id)
+        keys = Object.keys(metadata[0])
+        d3.select("#Demographic").selectAll("li").remove()
+        keys.map(item => d3.select("#Demographic").append("li").text(`${item} : ${metadata[0][item]}`))
 
     }
 
